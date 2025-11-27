@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimeAwards - Recomendações</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/geral.css" />
+    <link rel="stylesheet" href="recomendacoes.css" />
+    <link rel="stylesheet" href="/assets/css/navbar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container-aplicacao">
+        <aside class="sidebar"></aside>
+
+        <main class="conteudo-principal">
+            <div class="envelope-conteudo">
+                <header class="cabecalho-pagina">
+                    <div class="conteudo-cabecalho d-flex justify-content-between align-items-center">
+                        <div class="header-left">
+                            <h1 class="titulo-pagina">Recomendações</h1>
+                            <h4 class="subtitulo-pagina">
+                                <i class="fas fa-user me-2"></i>
+                                <span id="texto-subtitulo"></span>
+                            </h4>
+                        </div>
+                    </div>
+                </header>
+
+                <form id="formulario" class="formulario-perfil">
+                    <article class="caixa resumo-horas">
+                        <h4><i class="fa-solid fa-chart-bar me-2"></i>Resumo do Dia</h4>
+                        <div class="grade-formulario">
+                            <div class="campo-formulario">
+                                <label class="rotulo-formulario">Tempo Total</label>
+                                <input type="text" id="tempo-uso-hoje" class="input-formulario" readonly>
+                            </div>
+                            <div class="campo-formulario">
+                                <label class="rotulo-formulario">Metas Atingidas</label>
+                                <input type="text" id="metas-atingidas" class="input-formulario" readonly>
+                            </div>
+                            <div class="campo-formulario">
+                                <label class="rotulo-formulario">Horas Restantes</label>
+                                <input type="text" id="horas-restantes" class="input-formulario" readonly>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="caixa">
+                        <h4><i class="fa-solid fa-lightbulb me-2"></i>Recomendações Inteligentes</h4>
+                        <div class="grade-formulario" id="container-recomendacoes"></div>
+                    </article>
+
+                    <div class="acoes-formulario">
+                        <div class="botoes-acoes-esquerda">
+                            <button type="button" class="botao botao-voltar">
+                                <i class="fas fa-times"></i> Voltar
+                            </button>
+                        </div>
+                        <button type="button" class="botao botao-enviar">
+                            <i class="fas fa-sync-alt"></i> Gerar Recomendações
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/assets/js/navbar.js"></script>
+    <script src="recomendacoes.js"></script>
+</body>
+
+</html>

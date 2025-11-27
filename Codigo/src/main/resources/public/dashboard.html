@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeAwards - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/geral.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container-aplicacao">
+        <aside class="sidebar"></aside>
+        <main class="conteudo-principal">
+            <div class="envelope-conteudo">
+                <header class="cabecalho-pagina">
+                    <div class="conteudo-cabecalho d-flex justify-content-between align-items-center">
+                        <div class="header-left">
+                            <h1 class="titulo-pagina">Dashboard</h1>
+                            <h4 class="subtitulo-pagina">
+                                <i class="fas fa-user me-2"></i>
+                                <span id="texto-subtitulo"></span>
+                            </h4>
+                        </div>
+                        <div class="controles-navegacao">
+                            <button type="button" id="btn-semana-anterior" class="botao-navegacao"
+                                title="Semana Anterior">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <span id="periodo-selecionado" class="texto-periodo">Semana Atual</span>
+                            <button type="button" id="btn-semana-proxima" class="botao-navegacao"
+                                title="Próxima Semana">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <form id="formulario" class="formulario-monitoramento">
+                    <article class="caixa caixa-destaque">
+                        <h4><i class="fa-solid fa-chart-line me-2"></i>Comparação Semanal</h4>
+                        <div class="comparacao-grid">
+                            <div class="comparacao-card">
+                                <div class="comparacao-header">
+                                    <i class="fas fa-calendar-week"></i>
+                                    <span>Semana Atual</span>
+                                </div>
+                                <div class="comparacao-valor" id="total-semana-atual">0h</div>
+                                <div class="comparacao-descricao">Total de horas</div>
+                            </div>
+                            <div class="comparacao-seta">
+                                <i class="fas fa-arrow-right"></i>
+                                <div class="comparacao-diferenca" id="diferenca-semanal">+0%</div>
+                            </div>
+                            <div class="comparacao-card">
+                                <div class="comparacao-header">
+                                    <i class="fas fa-history"></i>
+                                    <span>Semana Anterior</span>
+                                </div>
+                                <div class="comparacao-valor" id="total-semana-anterior">0h</div>
+                                <div class="comparacao-descricao">Total de horas</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <div class="stats-metas-grid">
+                        <article class="caixa stats-card">
+                            <h4><i class="fas fa-chart-bar me-2"></i>Estatísticas da Semana</h4>
+                            <div class="stats-content">
+                                <div class="stat-item">
+                                    <div class="stat-icon stat-icon-green">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <span class="stat-label">Melhor Dia</span>
+                                        <span class="stat-value" id="melhor-dia">-</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-icon stat-icon-red">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <span class="stat-label">Pior Dia</span>
+                                        <span class="stat-value" id="pior-dia">-</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-icon stat-icon-blue">
+                                        <i class="fas fa-calculator"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <span class="stat-label">Média Diária</span>
+                                        <span class="stat-value" id="media-diaria">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="caixa metas-card">
+                            <h4><i class="fas fa-bullseye me-2"></i>Progresso das Metas Semanais</h4>
+                            <div class="metas-content">
+                                <div class="metas-header">
+                                    <span class="metas-texto">
+                                        <span id="metas-atingidas-count">0</span> de 5 metas atingidas
+                                    </span>
+                                    <span class="metas-percentual" id="metas-percentual">0%</span>
+                                </div>
+                                <div class="metas-progress-bar">
+                                    <div class="metas-progress-fill" id="metas-progress-fill"></div>
+                                </div>
+                                <div class="metas-lista">
+                                    <div class="meta-item" id="meta-trabalho">
+                                        <i class="fas fa-circle meta-icon"></i>
+                                        <span>Trabalho</span>
+                                    </div>
+                                    <div class="meta-item" id="meta-estudos">
+                                        <i class="fas fa-circle meta-icon"></i>
+                                        <span>Estudos</span>
+                                    </div>
+                                    <div class="meta-item" id="meta-atividade">
+                                        <i class="fas fa-circle meta-icon"></i>
+                                        <span>Atividade Física</span>
+                                    </div>
+                                    <div class="meta-item" id="meta-lazer">
+                                        <i class="fas fa-circle meta-icon"></i>
+                                        <span>Lazer</span>
+                                    </div>
+                                    <div class="meta-item" id="meta-sono">
+                                        <i class="fas fa-circle meta-icon"></i>
+                                        <span>Sono</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <article class="caixa">
+                        <h4><i class="fas fa-chart-pie me-2"></i>Distribuição por Categoria</h4>
+                        <div class="chart-wrapper-full">
+                            <canvas id="canvas-rosca"></canvas>
+                        </div>
+                    </article>
+
+                    <article class="caixa">
+                        <h4><i class="fas fa-chart-bar me-2"></i>Comparação: Semana Atual vs Anterior</h4>
+                        <div class="chart-wrapper-full">
+                            <canvas id="canvas-comparativo"></canvas>
+                        </div>
+                    </article>
+
+                    <article class="caixa">
+                        <h4><i class="fas fa-chart-line me-2"></i>Evolução das Últimas 8 Semanas</h4>
+                        <div class="chart-wrapper-full">
+                            <canvas id="canvas-linha"></canvas>
+                        </div>
+                    </article>
+
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>
