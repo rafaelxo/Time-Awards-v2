@@ -15,10 +15,10 @@ public class DAO {
     public boolean conectar() {
         boolean status = false;
         try {
-            String driverName = "org.postgresql.Driver";
-            String url = "jdbc:postgresql://ti-2.postgres.database.azure.com:5432/banco?sslmode=require";
-            String username = "ti2";
-            String password = "#TIMEAWARDSG21";
+            String driverName = "";
+            String url = "";
+            String username = "";
+            String password = "";
 
             Class.forName(driverName);
             conexao = DriverManager.getConnection(url, username, password);
