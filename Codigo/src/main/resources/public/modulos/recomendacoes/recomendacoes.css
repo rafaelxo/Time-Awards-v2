@@ -1,0 +1,390 @@
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #2563eb;
+    --danger-color: #dc2626;
+    --success-color: #16a34a;
+    --warning-color: #facc15;
+    --light-bg: #f0f8ff;
+    --light-bg-alt: #cce5fd;
+    --text-dark: #374151;
+    --text-muted: #6b7280;
+    --font-main: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.formulario-perfil {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    max-width: 80rem;
+    margin: 0 auto 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.caixa {
+    border: 1px solid #d1d5db;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, var(--light-bg), var(--light-bg-alt));
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.caixa:hover {
+    transform: scale(1.015);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.caixa h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.opcoes-notificacao {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.item-notificacao {
+    padding: 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.item-notificacao.blue-theme {
+    background-color: #e0f2fe;
+}
+
+.item-notificacao.blue-theme:hover {
+    background-color: #bae6fd;
+}
+
+.item-notificacao.green-theme {
+    background-color: #dcfce7;
+}
+
+.item-notificacao.green-theme:hover {
+    background-color: #bbf7d0;
+}
+
+.item-notificacao.red-theme {
+    background-color: #fee2e2;
+}
+
+.item-notificacao.red-theme:hover {
+    background-color: #fecaca;
+}
+
+.titulo-notificacao {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-notificacao i {
+    margin-right: 0.5rem;
+}
+
+.descricao-notificacao {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e5e7eb;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill.blue-theme {
+    background-color: #0ea5e9;
+}
+
+.progress-fill.green-theme {
+    background-color: #10b981;
+}
+
+.progress-fill.red-theme {
+    background-color: #dc2626;
+}
+
+.progress-fill.yellow-theme {
+    background-color: #facc15;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+            rgba(255, 255, 255, 0.2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.2) 75%,
+            transparent 75%,
+            transparent);
+    background-size: 20px 20px;
+    animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 40px 40px;
+    }
+}
+
+.progresso-completo {
+    background-color: #16a34a !important;
+}
+
+.grade-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.mensagem-vazia {
+    width: 100%;
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6b7280;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.mensagem-vazia i {
+    opacity: 0.3;
+    margin-bottom: 1.5rem;
+}
+
+.mensagem-vazia p {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+}
+
+.mensagem-vazia small {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+.recomendacao-card {
+    background: white;
+    border-radius: 0.5rem;
+    border-left: 6px solid #d1d5db;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    flex: 1 1 320px;
+    max-width: 350px;
+}
+
+.recomendacao-card.leve {
+    border-left-color: #10b981;
+}
+
+.recomendacao-card.moderado {
+    border-left-color: var(--warning-color);
+}
+
+.recomendacao-card.alto {
+    border-left-color: var(--danger-color);
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.card-text strong {
+    font-weight: 600;
+}
+
+.btn-concluir {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    background-color: var(--success-color);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-concluir:hover {
+    background-color: #15803d;
+}
+
+.btn-concluir:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.acoes-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .acoes-formulario {
+        flex-direction: row;
+    }
+}
+
+.botoes-acoes-esquerda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    border: none;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .botao {
+        flex: none;
+    }
+}
+
+.botao:hover {
+    transform: translateY(-1px);
+}
+
+.botao-voltar {
+    background-color: var(--danger-color);
+}
+
+.botao-voltar:hover {
+    background-color: #b91c1c;
+}
+
+.botao-enviar {
+    background-color: #16a34a;
+}
+
+.botao-enviar:hover {
+    background-color: #15803d;
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+.caixa.resumo-horas .grade-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .caixa.resumo-horas .grade-formulario {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+.caixa.resumo-horas .campo-formulario {
+    background-color: #e0f2fe;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.caixa.resumo-horas .campo-formulario:hover {
+    transform: scale(1.015);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    background-color: #bae6fd;
+}
+
+.caixa.resumo-horas .rotulo-formulario {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.caixa.resumo-horas .rotulo-formulario::before {
+    content: '\f017';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 0.5rem;
+    color: #000000;
+    font-size: 1rem;
+}
+
+.caixa.resumo-horas .input-formulario {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    width: 100%;
+    cursor: default;
+}
+
+@media (max-width: 768px) {
+    .caixa.resumo-horas .grade-formulario {
+        flex-direction: column;
+    }
+
+    .caixa.resumo-horas .campo-formulario {
+        width: 100%;
+    }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeAwards - Perfil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/geral.css">
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="notification-container"></div>
+    <div class="container-aplicacao">
+        <aside class="sidebar"></aside>
+
+        <main class="conteudo-principal">
+            <div class="envelope-conteudo">
+                <header class="cabecalho-pagina">
+                    <div class="conteudo-cabecalho">
+                        <div class="header-left">
+                            <h1 class="titulo-pagina">Perfil</h1>
+                            <h4 class="subtitulo-pagina">
+                                <i class="fas fa-user"></i>
+                                <span id="texto-subtitulo"></span>
+                            </h4>
+                        </div>
+                    </div>
+                </header>
+
+                <form id="formulario" class="formulario-perfil">
+                    <div class="cabecalho-perfil">
+                        <div class="capa-perfil"></div>
+                        <div class="secao-avatar-perfil">
+                            <div class="container-avatar">
+                                <div class="container-foto">
+                                    <img id="foto-perfil" src="/assets/imagens/anonimo.png" alt="Foto de Perfil">
+                                </div>
+                            </div>
+                            <h2 class="nome-perfil"></h2>
+                            <p class="cargo-perfil"></p>
+                        </div>
+                    </div>
+
+                    <div class="secao-formulario">
+                        <h2 class="titulo-secao"><i class="fas fa-cog"></i> Configurações da Conta</h2>
+                        <div class="grade-formulario">
+                            <div class="campo-formulario">
+                                <label class="rotulo-formulario">Nome de Usuário</label>
+                                <input type="text" id="login" name="login" class="input-formulario" placeholder="">
+                                <div id="erro-login" class="mensagem-erro"></div>
+                            </div>
+                            <div class="campo-formulario">
+                                <label class="rotulo-formulario">Nome Completo</label>
+                                <input type="text" id="nome" name="nome" class="input-formulario" placeholder="">
+                                <div id="erro-nome" class="mensagem-erro"></div>
+                            </div>
+                            <div class="campo-formulario">
+                                <label class="rotulo-formulario">E-mail</label>
+                                <input type="email" id="email" name="email" class="input-formulario" placeholder="">
+                                <div id="erro-email" class="mensagem-erro"></div>
+                            </div>
+                            <div class="campo-formulario">
+                                <label class="rotulo-formulario">Telefone</label>
+                                <input type="text" id="telefone" name="telefone" class="input-formulario"
+                                    placeholder="">
+                                <div id="erro-telefone" class="mensagem-erro"></div>
+                            </div>
+                            <div class="campo-formulario">
+                                <label class="rotulo-formulario">Senha</label>
+                                <input type="password" id="senha" name="senha" class="input-formulario">
+                                <div id="erro-senha" class="mensagem-erro"></div>
+                            </div>
+                            <div class="campo-formulario">
+                                <label class="rotulo-formulario">Confirmação de Senha</label>
+                                <input type="password" id="confirmacao-senha" name="confirmacao-senha"
+                                    class="input-formulario">
+                                <div id="erro-confirmacao-senha" class="mensagem-erro"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="secao-formulario">
+                        <h2 class="titulo-secao"><i class="fas fa-bell"></i> Notificações</h2>
+                        <div class="opcoes-notificacao">
+                            <div class="item-notificacao green-theme">
+                                <div class="conteudo-notificacao">
+                                    <h3 class="titulo-notificacao">
+                                        <i class="fas fa-envelope"></i>
+                                        Receber relatórios e lembretes por e-mail
+                                    </h3>
+                                    <p class="descricao-notificacao">Receba automaticamente resumos de suas atividades e
+                                        lembretes para realizar suas tarefas diárias.</p>
+                                </div>
+                                <div class="interruptor" id="notificacao-diaria">
+                                    <div class="deslizador-interruptor"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acoes-formulario">
+                        <div class="botoes-acoes-esquerda">
+                            <button type="button" id="botao-voltar" class="botao botao-voltar">
+                                <i class="fas fa-times"></i>
+                                Voltar
+                            </button>
+                        </div>
+                        <button type="submit" id="botao-salvar" class="botao botao-enviar">
+                            <i class="fas fa-save"></i>
+                            Salvar Perfil
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/assets/js/navbar.js"></script>
+    <script src="perfil.js"></script>
+</body>
+
+</html>

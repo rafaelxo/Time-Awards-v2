@@ -2,3 +2,6 @@
 .vscode
 .env
 /node_modules/
+.classpath
+.project
+pom.xml

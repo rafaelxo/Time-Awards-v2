@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeAwards - Atividades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/geral.css">
+    <link rel="stylesheet" href="atividades.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+
+<body>
+    <div id="notification-container"></div>
+    <div class="container-aplicacao">
+        <aside class="sidebar"></aside>
+
+        <main class="conteudo-principal">
+            <div class="envelope-conteudo">
+                <header class="cabecalho-pagina">
+                    <div class="conteudo-cabecalho">
+                        <div class="header-left">
+                            <h1 class="titulo-pagina">Atividades</h1>
+                            <h4 class="subtitulo-pagina">
+                                <i class="fas fa-user"></i>
+                                <span id="texto-subtitulo"></span>
+                            </h4>
+                        </div>
+                    </div>
+                </header>
+
+                <form id="formulario" class="formulario-perfil">
+                    <div class="secao-formulario">
+                        <h2 class="titulo-secao"><i class="fas fa-clipboard-list"></i> Cadastro Manual</h2>
+                        <div class="grade-formulario">
+                            <div class="campo-formulario" id="nome">
+                                <label class="rotulo-formulario">Nome da Atividade</label>
+                                <input type="text" class="input-formulario" placeholder="Digite o nome">
+                            </div>
+                            <div class="campo-formulario" id="classe">
+                                <label class="rotulo-formulario">Classe</label>
+                                <select class="input-formulario">
+                                    <option value="">Selecione a Classe</option>
+                                    <option value="Trabalho">Trabalho</option>
+                                    <option value="Estudos">Estudos</option>
+                                    <option value="Atividade Física">Atividade Física</option>
+                                    <option value="Lazer">Lazer</option>
+                                    <option value="Sono">Sono</option>
+                                </select>
+                            </div>
+                            <div class="campo-formulario" id="horas">
+                                <label class="rotulo-formulario">Horas</label>
+                                <input type="number" class="input-formulario" placeholder="Horas gastas" min="0"
+                                    step="0.5">
+                            </div>
+                            <div class="campo-formulario" id="prioridade">
+                                <label class="rotulo-formulario">Prioridade</label>
+                                <select class="input-formulario">
+                                    <option value="">Selecione a Prioridade</option>
+                                    <option value="Baixa">Baixa</option>
+                                    <option value="Média">Média</option>
+                                    <option value="Alta">Alta</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="secao-formulario">
+                        <h2 class="titulo-secao"><i class="fas fa-robot"></i> Cadastro Automático</h2>
+                        <div class="campo-formulario" id="prompt">
+                            <label class="rotulo-formulario">Descreva sua atividade</label>
+                            <div class="prompt-field">
+                                <textarea class="input-prompt"
+                                    placeholder="Ex: Fiz 2 horas de academia hoje pela manhã com prioridade alta"></textarea>
+                                <div class="prompt-icons" role="group" aria-label="Ações do prompt">
+                                    <div class="prompt-icons-left">
+                                        <button type="button" id="btn-anexar" class="icon-btn" title="Anexar arquivo"
+                                            aria-label="Anexar arquivo">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                        <button type="button" id="btn-foto" class="icon-btn" title="Adicionar foto"
+                                            aria-label="Adicionar foto">
+                                            <i class="fa-solid fa-camera"></i>
+                                        </button>
+                                        <button type="button" id="btn-mic" class="icon-btn" title="Gravar áudio"
+                                            aria-label="Gravar áudio">
+                                            <i class="fa-solid fa-microphone"></i>
+                                        </button>
+                                    </div>
+                                    <button type="button" id="btn-enviar-ia" class="icon-btn icon-btn-send"
+                                        title="Analisar com IA (Ctrl+Enter)" aria-label="Analisar com IA">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acoes-formulario">
+                        <div class="botoes-acoes-esquerda">
+                            <button type="button" class="botao botao-voltar">
+                                <i class="fas fa-times"></i>
+                                Voltar
+                            </button>
+                        </div>
+                        <button type="button" class="botao botao-enviar">
+                            <i class="fas fa-plus"></i>
+                            Adicionar Atividade
+                        </button>
+                    </div>
+                </form>
+
+                <form id="formulario-listagem" class="formulario-perfil">
+                    <div class="secao-formulario">
+                        <h2 class="titulo-secao"><i class="fas fa-list"></i> Lista de Atividades</h2>
+                        <div class="lista-atividades">
+                            <table id="tabela-atividades" class="tabela-atividades">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Classe</th>
+                                        <th>Horas</th>
+                                        <th>Prioridade</th>
+                                        <th>Data</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/assets/js/navbar.js"></script>
+    <script src="atividades.js"></script>
+    <script src="ia's/ia-prompt.js"></script>
+    <script src="ia's/ia-voz.js"></script>
+    <script type="module" src="ia's/ia-foto.js"></script>
+</body>
+
+</html>
