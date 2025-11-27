@@ -23,9 +23,9 @@ import model.Recomendacao;
 
 public class RecomendadorService {
 
-    private final String ENDPOINT = "https://rectimeawards.openai.azure.com/";
-    private final String API_KEY = "7VksncO3WYedWIN6ffBDgnTX7aZrf2RNVREjEhqMojs9HZrugmFUJQQJ99BJACHYHv6XJ3w3AAABACOGp8Ed";
-    private final String DEPLOYMENT = "gpt-4o";
+    private final String ENDPOINT = "";
+    private final String API_KEY = "";
+    private final String DEPLOYMENT = "";
 
     private final AtividadeDAO atividadeDAO = new AtividadeDAO();
     private final RecomendacaoDAO recomendacaoDAO = new RecomendacaoDAO();
